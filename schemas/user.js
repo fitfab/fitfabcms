@@ -22,6 +22,15 @@ export default {
             title: 'Phone Number',
             name: 'phone',
             type: 'string',
+        },
+        {
+            title: 'Avatar',
+            name: 'avatar',
+            type: 'image',
+            options: {
+                hotspot: true // <-- Defaults to false
+            }
         }
+
     ]
 }

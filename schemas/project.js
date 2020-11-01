@@ -24,8 +24,15 @@ export default {
         {
             title: 'Location',
             name: 'location',
-            type: 'string',
-            description: 'Enter the city and state'
+            type: 'address',
+            description: 'Enter the city and state at least.'
+        },
+
+        {
+            title: 'Business Contact',
+            name: 'client',
+            type: 'array', // set to "user" from "array" to comply with graphql schema
+            of: [{type: 'user'}]
         },
         {
             title: 'Developer',
@@ -33,18 +40,6 @@ export default {
             type: 'reference',
             to: {type: 'developer'}
         },
-        {
-            title: 'Business Contact',
-            name: 'client',
-            type: 'array',
-            of: [
-                {
-                    title: 'Business Contact',
-                    name: 'contact',
-                    type: 'user'
-                }
-            ]
-        }
 
     ]
 }

@@ -4,23 +4,38 @@ export default {
     type: 'document',
     fields: [
         {
-            title: 'Detail',
-            name: 'contact',
+            title: 'Developer Information',
+            name: 'detail',
             type: 'user'
+        }, 
+        {
+            title: 'Work',
+            name: 'work',
+            type: 'array',
+            of: [
+                {
+                    type: 'reference',
+                    to: [{type: 'project'}]
+                }
+            ]
+                
+            
         }
         
     ],
         // custom preview: https://www.sanity.io/docs/previews-list-views
         preview: {
             select: {
-                firstName: 'contact.firstName',
-                subtitle: 'contact.email',
-                lastName: 'contact.lastName',
+                firstName: 'detail.firstName',
+                subtitle: 'detail.email',
+                lastName: 'detail.lastName',
+                avatar: 'detail.avatar'
             },
-            prepare({firstName, subtitle, lastName}) {
+            prepare({firstName, subtitle, lastName, avatar}) {
                 return {
                     title: `${firstName} ${lastName}`,
-                    subtitle
+                    subtitle,
+                    media: avatar
                 }
             }
         }
