@@ -31,7 +31,7 @@ export default {
         {
             title: 'Business Contact',
             name: 'client',
-            type: 'array', // set to "user" from "array" to comply with graphql schema
+            type: 'array', 
             of: [{type: 'user'}]
         },
         {
